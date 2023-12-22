@@ -2,5 +2,5 @@
 
 ## commands
 
-- rt a(dd) <key> <?value>
-- rt v(iew) <?key>
+- rt a(dd) key ?value
+- rt v(iew) ?key
