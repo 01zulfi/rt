@@ -1,72 +1,30 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
+
+	"github.com/01zulfi/rt/commands"
 )
 
-func check(e error) {
-	if e != nil {
-		panic(e)
-	}
-}
-
-func prettyPrint(data map[string]string) {
-	for key, value := range data {
-		fmt.Printf("%s: %s\n", key, value)
-	}
-}
-
 func main() {
-	var data map[string]string
-	content, err := os.ReadFile("data.json")
-	check(err)
-	err = json.Unmarshal(content, &data)
-	check(err)
-
 	args := os.Args[1:]
+	if len(args) == 0 {
+		return
+	}
+
 	cmd := args[0]
 
 	switch cmd {
 	case "a", "add":
-		var key string
-		var value string
-		if len(args) > 1 {
-			key = args[1]
-		}
-		if len(args) > 2 {
-			value = args[2]
-		}
-		if value == "" {
-			data[key] = key
-			bytes, err := json.Marshal(data)
-			check(err)
-			os.WriteFile("data.json", bytes, 0644)
-		} else {
-			data[key] = value
-			bytes, err := json.Marshal(data)
-			check(err)
-			os.WriteFile("data.json", bytes, 0644)
-		}
+		commands.Add(args[1], args[2])
 	case "v", "view":
-		var key string
 		if len(args) > 1 {
-			key = args[1]
-		}
-		if key == "" {
-			prettyPrint(data)
+			commands.View(args[1])
 		} else {
-			value := data[key]
-			if value != "" {
-				fmt.Printf("%s: %s\n", key, value)
-			} else {
-				fmt.Println("Key not found")
-				fmt.Println("")
-				prettyPrint(data)
-			}
+			commands.View("")
 		}
 	default:
-		prettyPrint(data)
+		fmt.Println("Invalid command")
 	}
 }
