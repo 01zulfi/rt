@@ -33,6 +33,8 @@ func main() {
 		} else {
 			commands.View("")
 		}
+	case "x", "clear-all":
+		commands.ClearAll()
 	default:
 		fmt.Println("Invalid command")
 	}
