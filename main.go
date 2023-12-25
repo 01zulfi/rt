@@ -17,7 +17,16 @@ func main() {
 
 	switch cmd {
 	case "a", "add":
-		commands.Add(args[1], args[2])
+		var key string
+		var value string
+		if len(args) > 1 {
+			key = args[1]
+		}
+		if len(args) > 2 {
+			key = args[2]
+		}
+
+		commands.Add(key, value)
 	case "v", "view":
 		if len(args) > 1 {
 			commands.View(args[1])
