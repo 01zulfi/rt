@@ -23,7 +23,7 @@ func main() {
 			key = args[1]
 		}
 		if len(args) > 2 {
-			key = args[2]
+			value = args[2]
 		}
 
 		commands.Add(key, value)
