@@ -7,8 +7,9 @@ i use it to store short texts, ids, memos for later use
 copy `rt` executable file to `/usr/local/bin` (or equivalent). this should make `rt` command available everywhere
 
 ```bash
-curl https://raw.githubusercontent.com/01zulfi/rt/main/rt -o > ./rt
+curl https://raw.githubusercontent.com/01zulfi/rt/main/rt > ./rt
 sudo mv ./rt /usr/local/bin/
+chmod +x /usr/local/bin/rt
 ```
 
 it stores key value pairs in a json format at `$HOME/.rt.json`
