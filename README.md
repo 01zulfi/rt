@@ -4,7 +4,12 @@ i use it to store short texts, ids, memos for later use
 
 ## how to use
 
-copy `rt` executable file to `/usr/local/bin`. this should make `rt` command available everywhere
+copy `rt` executable file to `/usr/local/bin` (or equivalent). this should make `rt` command available everywhere
+
+```bash
+curl https://raw.githubusercontent.com/01zulfi/rt/main/rt -o > ./rt
+sudo mv ./rt /usr/local/bin/
+```
 
 it stores key value pairs in a json format at `$HOME/.rt.json`
 
@@ -14,3 +19,5 @@ it stores key value pairs in a json format at `$HOME/.rt.json`
     if value isn't provided, key is the value
 
 - rt v(iew) ?key
+
+- rt x|clear-all
