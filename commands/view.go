@@ -38,7 +38,15 @@ func View(key string) {
 			fmt.Println("")
 			prettyPrint(data)
 		} else {
+			err := utils.SetClipboard(value)
+			if err != nil {
+				fmt.Println(value)
+				return
+			}
 			fmt.Println(value)
+			fmt.Println("")
+			colored := fmt.Sprintf("\x1b[%dm%s\x1b[0m", 32, "^ copied to clipboard")
+			fmt.Println(colored)
 		}
 	}
 }
