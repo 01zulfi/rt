@@ -33,6 +33,12 @@ func main() {
 		} else {
 			commands.View("")
 		}
+	case "r", "remove":
+		if len(args) > 1 {
+			commands.Remove(args[1])
+		} else {
+			fmt.Println("remove: need argument")
+		}
 	case "x", "clear-all":
 		commands.ClearAll()
 	default:
