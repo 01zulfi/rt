@@ -22,3 +22,5 @@ it stores key value pairs in a json format at `$HOME/.rt.json`
 - rt v(iew) ?key
 
 - rt x|clear-all
+
+- rt r(emove) key
